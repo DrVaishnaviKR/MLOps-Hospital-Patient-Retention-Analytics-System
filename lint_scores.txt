@@ -1,0 +1,31 @@
+========================================
+  FINAL LINT & TEST SCORES
+  Patient Churn Prediction Project
+  Date: 2026-03-03
+========================================
+
+--- Flake8 (Code Style) ---
+Target:   backend/ tests/ src/
+Result:   0 errors, 0 warnings
+Status:   PASSED ✓
+
+--- Pylint (Code Quality) ---
+Target:   backend/
+Score:    10.00 / 10
+Status:   PASSED ✓
+
+--- Pytest (Unit Tests + Coverage) ---
+Target:   tests/ (coverage: backend/)
+Tests:    7 passed, 0 failed
+Coverage: 94% (backend/)
+
+  backend/__init__.py    100%
+  backend/app.py          91%
+  backend/schemas.py     100%
+  TOTAL                   94%
+
+Status:   PASSED ✓
+
+========================================
+  ALL CHECKS PASSED
+========================================

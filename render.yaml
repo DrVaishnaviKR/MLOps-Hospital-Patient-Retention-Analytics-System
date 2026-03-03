@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: patient-churn-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: DB_HOST
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_PORT
+        sync: false
+
+  - type: web
+    name: patient-churn-frontend
+    runtime: python
+    buildCommand: pip install -r frontend/requirements.txt
+    startCommand: streamlit run frontend/streamlit_app.py --server.port $PORT --server.address 0.0.0.0

@@ -1,0 +1,15 @@
+fastapi==0.131.0
+uvicorn==0.41.0
+pydantic==2.12.5
+prometheus-client==0.24.1
+sqlalchemy==2.0.46
+joblib==1.5.2
+wandb==0.25.0
+scikit-optimize==0.10.2
+scikit-learn==1.7.2
+pandas==2.3.3
+numpy==2.3.4
+imbalanced-learn==0.14.1
+psycopg2-binary==2.9.10
+python-dotenv==1.1.0
+httpx==0.28.1
