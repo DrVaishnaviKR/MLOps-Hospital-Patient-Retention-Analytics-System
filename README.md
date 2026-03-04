@@ -191,8 +191,8 @@ pylint backend/ src/ tests/ --disable=C0114,C0115,C0116
     "Staff_Satisfaction": 4.0,
     "Provider_Rating": 3.8,
     "Avg_Out_Of_Pocket_Cost": 150.0,
-    "Billing_Issues": "No",
-    "Portal_Usage": "Medium",
+    "Billing_Issues": 0,
+    "Portal_Usage": 1,
     "Referrals_Made": 2,
     "Distance_To_Facility_Miles": 10.5
 }
