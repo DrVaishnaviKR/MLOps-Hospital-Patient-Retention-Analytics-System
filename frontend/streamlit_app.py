@@ -135,11 +135,12 @@ if submitted:
     }
 
     try:
-        response = requests.post(
-            f"{API_URL}/predict",
-            json=payload,
-            timeout=10
-        )
+        with st.spinner("⏳ Waiting for API (free server may take ~60s to wake up)..."):
+            response = requests.post(
+                f"{API_URL}/predict",
+                json=payload,
+                timeout=120
+            )
 
         if response.status_code == 200:
             result = response.json()
