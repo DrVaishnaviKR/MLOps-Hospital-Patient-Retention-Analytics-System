@@ -104,14 +104,21 @@ streamlit run frontend/streamlit_app.py
 
 The model uses a **Random Forest Classifier** with **SMOTE** for handling class imbalance (68%/32% churn/no-churn split).
 
-### Hyperparameter Tuning Methods
-| Method | Scoring |
-|---|---|
-| GridSearchCV | ROC-AUC |
-| RandomizedSearchCV | ROC-AUC |
-| BayesSearchCV (scikit-optimize) | ROC-AUC |
+### Hyperparameter Tuning Comparison
 
-The best model is automatically selected and saved.
+| Metric | GridSearch ✅ | RandomSearch | BayesianSearch |
+|--------|------------|--------------|----------------|
+| **ROC-AUC** | **0.6204** | 0.6204 | 0.6126 |
+| **Accuracy** | **0.6675** | 0.6675 | 0.6325 |
+| **F1-Score** | **0.7772** | 0.7772 | 0.7380 |
+| **Precision** | **0.7160** | 0.7160 | 0.7188 |
+| **Recall** | **0.8498** | 0.8498 | 0.7582 |
+
+### 🏆 Best Model: GridSearchCV
+- **Algorithm**: Random Forest + SMOTE Pipeline
+- **Best Parameters**: `n_estimators=200`, `max_depth=10`, `min_samples_split=2`
+- **Selection Criterion**: Highest ROC-AUC score
+- **Key Insight**: High recall (85%) ensures most at-risk patients are identified
 
 ## 🧪 Testing
 ```bash
