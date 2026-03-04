@@ -1,5 +1,12 @@
 venv
+.venv
 __pycache__
 wandb
 .env
 .git
+.github
+tests
+frontend
+monitoring
+.pytest_cache
+*.pyc

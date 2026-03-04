@@ -10,4 +10,5 @@ COPY . .
 
 EXPOSE 8000
 
-CMD ["uvicorn", "backend.app:app", "--host", "0.0.0.0", "--port", "8000"]
+# Use PORT env variable from Render (falls back to 8000 for local Docker)
+CMD uvicorn backend.app:app --host 0.0.0.0 --port ${PORT:-8000}
