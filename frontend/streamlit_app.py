@@ -1,3 +1,5 @@
+import os
+
 import streamlit as st
 import requests
 
@@ -10,10 +12,13 @@ st.set_page_config(
 st.title("🏥 Patient Churn Prediction")
 st.markdown("Enter patient details below to predict churn probability.")
 
-# API URL - change this when deploying to Render
+# API URL - uses env var on Render, falls back to localhost for local dev
+DEFAULT_API_URL = os.environ.get(
+    "BACKEND_URL", "https://churn-backend-k07b.onrender.com"
+)
 API_URL = st.sidebar.text_input(
     "FastAPI URL",
-    value="http://localhost:8000"
+    value=DEFAULT_API_URL
 )
 
 st.sidebar.markdown("---")
