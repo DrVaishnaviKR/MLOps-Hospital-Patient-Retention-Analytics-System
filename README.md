@@ -23,63 +23,57 @@ A complete ML classification system for predicting patient churn, built with mod
 ║                    END-TO-END MLOps PIPELINE                                 ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
-  ┌─────────────────────────────────────────────────────────────────────────┐
-  │  STAGE 1: DATA LAYER                                                    │
-  │                                                                         │
-  │  ┌──────────────────┐       ┌──────────────────┐                        │
-  │  │ 🗄️ Neon Postgres │─────▶│ 📊 EDA & Data    │                       │
-  │  │ (Cloud Database)  │       │   Validation     │                       │
-  │  │ patient_churn     │       │ Duplicates/Nulls │                       │
-  │  └──────────────────┘       └────────┬─────────┘                       │
-  └──────────────────────────────────────┼─────────────────────────────────┘
-                                         ▼
-  ┌─────────────────────────────────────────────────────────────────────────┐
-  │  STAGE 2: FEATURE ENGINEERING                                          │
-  │                                                                        │
-  │  Raw Data ──▶ Recency_Days ──▶ Engagement_Ratio ──▶ Missed_Ratio      │
-  │              Avg_Satisfaction    OneHotEncoding      StandardScaler     │
-  └──────────────────────────────────────┬─────────────────────────────────┘
-                                         ▼
-  ┌─────────────────────────────────────────────────────────────────────────┐
-  │  STAGE 3: MODEL TRAINING & TUNING                                      │
-  │                                                                        │
-  │  ┌──────────────┐    ┌──────────────┐   ┌──────────────┐               │
-  │  │ GridSearchCV  │   │RandomSearch  │   │ BayesSearch  │               │
-  │  │   ROC-AUC:    │   │  ROC-AUC:    │   │  ROC-AUC:   │                │
-  │  │   0.6204 ✅   │   │  0.6204      │   │  0.6126     │                │
-  │  └──────┬───────┘    └──────────────┘   └──────────────┘                │
-  │         │     SMOTE (Class Imbalance) + Random Forest                   │
-  │         ▼                                                               │
-  │  ┌──────────────────┐        ┌──────────────────┐                       │
-  │  │ 🏆 Best Model   │───────▶│ 📦 W&B Model    │                        │
-  │  │ best_model.joblib │        │   Registry       │                      │
-  │  └────────┬─────────┘        │  Experiment Logs  │                      │
-  │           │                  └──────────────────┘                      │
-  └───────────┼────────────────────────────────────────────────────────────┘
-              ▼
-  ┌─────────────────────────────────────────────────────────────────────────┐
-  │  STAGE 4: DEPLOYMENT & SERVING                                         │
-  │                                                                        │
-  │  ┌──────────────────┐        ┌──────────────────┐                      │
-  │  │ 🚀 FastAPI        │◀───────│ 🎨 Streamlit   │                      │
-  │  │ /predict endpoint │        │ User Interface   │                      │
-  │  │ Docker Container  │        │ (Render Deploy)  │                      │
-  │  └────────┬─────────┘        └──────────────────┘                      │
-  │           │                                                            │
-  │  ┌────────▼─────────┐        ┌──────────────────┐                      │
-  │  │ 📈 Prometheus     │───────▶│ 📊 Grafana     │                      │
-  │  │ Metrics Scraping  │        │ Live Dashboards  │                      │
-  │  │ /metrics endpoint │        │ Request Counts   │                      │
-  │  └──────────────────┘        │ Latency Tracking │                      │
-  │                              └──────────────────┘                      │
-  └─────────────────────────────────────────────────────────────────────────┘
-
-  ┌─────────────────────────────────────────────────────────────────────────┐
-  │  STAGE 5: CI/CD (GitHub Actions)                                       │
-  │                                                                        │
-  │  git push ──▶ Flake8 ──▶ Pylint ──▶ Pytest ──▶ Deploy to Render       │
-  │               (0 err)   (10/10)    (7 pass)    (Auto-deploy)            │
-  └─────────────────────────────────────────────────────────────────────────┘
+                   ┌─────────────────────┐
+                   │   Neon PostgreSQL   │
+                   │   (Patient Data)    │
+                   └──────────┬──────────┘
+                              │
+                              ▼
+                   ┌─────────────────────┐
+                   │  Data Fetching &    │
+                   │  Feature Engineering│
+                   └──────────┬──────────┘
+                              │
+                              ▼
+                   ┌─────────────────────┐
+                   │  ML Pipeline        │
+                   │  (SMOTE + RF)       │
+                   └──────────┬──────────┘
+                              │
+                              ▼
+                   ┌─────────────────────┐
+                   │ Hyperparameter      │
+                   │ Tuning              │
+                   │ Grid / Random /     │
+                   │ Bayesian Search     │
+                   └──────────┬──────────┘
+                              │
+                              ▼
+                   ┌─────────────────────┐
+                   │ Best Model (.joblib)│
+                   │ Model Registry      │
+                   │ Weights & Biases    │
+                   └──────────┬──────────┘
+                              │
+                              ▼
+                   ┌─────────────────────┐
+                   │ FastAPI Backend     │
+                   │ /health /predict    │
+                   │ /metrics endpoints  │
+                   └──────────┬──────────┘
+                              │
+               ┌──────────────┴──────────────┐
+               ▼                             ▼
+      ┌──────────────────┐         ┌──────────────────┐
+      │ Streamlit        │         │ Docker           │
+      │ Frontend UI      │         │ Containerization │
+      └─────────┬────────┘         └─────────┬────────┘
+                │                            │
+                ▼                            ▼
+         ┌───────────────┐          ┌─────────────────┐
+         │ Prometheus    │ ------▶  |  Grafana        |       
+         │ Metrics       │          │ Monitoring      │
+         └───────────────┘          └─────────────────┘
 ```
 
 ## 🚀 Quick Start
