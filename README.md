@@ -203,9 +203,11 @@ End_to_end_patient_churn_project/
 ```
 
 ## 🌐 Live URLs
-- **FastAPI Backend**: _[Add Render URL after deployment]_
-- **Streamlit Frontend**: _[Add Render URL after deployment]_
-- **W&B Project**: _[Add W&B project link]_
+- **FastAPI Backend (API Docs)**: [https://churn-backend-k07b.onrender.com/docs](https://churn-backend-k07b.onrender.com/docs)
+- **Streamlit Frontend**: [https://churn-frontend-0kkt.onrender.com](https://churn-frontend-0kkt.onrender.com)
+- **Health Check**: [https://churn-backend-k07b.onrender.com/health](https://churn-backend-k07b.onrender.com/health)
+
+> **Note:** Free Render instances spin down after inactivity. The first request may take ~50 seconds to load.
 
 ## 💼 Business Value
 
