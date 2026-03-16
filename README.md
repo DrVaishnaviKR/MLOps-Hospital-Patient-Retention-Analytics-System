@@ -237,10 +237,24 @@ End_to_end_patient_churn_project/
 └── README.md
 ```
 
+## 🎬 Demo Video
+
+📹 **End-to-End Project Walkthrough**: [Watch on Google Drive](https://drive.google.com/file/d/1ak-CEdl9_QFWHpk2eZBhVxwl1TywtReC/view?usp=sharing)
+
+> A comprehensive video explaining the complete project development — from data ingestion through deployment.
+
 ## 🌐 Live URLs
-- **FastAPI Backend (API Docs)**: [https://churn-backend-k07b.onrender.com/docs](https://churn-backend-k07b.onrender.com/docs)
-- **Streamlit Frontend**: [https://churn-frontend-0kkt.onrender.com](https://churn-frontend-0kkt.onrender.com)
-- **Health Check**: [https://churn-backend-k07b.onrender.com/health](https://churn-backend-k07b.onrender.com/health)
+
+| # | Feature | URL |
+|---|---------|-----|
+| 1 | 🎨 **Streamlit Frontend** | [https://churn-frontend-0kkt.onrender.com](https://churn-frontend-0kkt.onrender.com) |
+| 2 | 📖 **FastAPI Swagger Docs** | [https://churn-backend-k07b.onrender.com/docs](https://churn-backend-k07b.onrender.com/docs) |
+| 3 | 📘 **FastAPI ReDoc** | [https://churn-backend-k07b.onrender.com/redoc](https://churn-backend-k07b.onrender.com/redoc) |
+| 4 | 💚 **Health Check** | [https://churn-backend-k07b.onrender.com/health](https://churn-backend-k07b.onrender.com/health) |
+| 5 | 📊 **Prometheus Metrics** | [https://churn-backend-k07b.onrender.com/metrics](https://churn-backend-k07b.onrender.com/metrics) |
+| 6 | 🔮 **Predict Endpoint** (POST) | [https://churn-backend-k07b.onrender.com/predict](https://churn-backend-k07b.onrender.com/docs#/default/predict_predict_post) |
+| 7 | 🐙 **GitHub Repository** | [https://github.com/DrVaishnaviKR/MLOps-Hospital-Patient-Retention-Analytics-System](https://github.com/DrVaishnaviKR/MLOps-Hospital-Patient-Retention-Analytics-System) |
+| 8 | 🎬 **Demo Video** | [Google Drive](https://drive.google.com/file/d/1ak-CEdl9_QFWHpk2eZBhVxwl1TywtReC/view?usp=sharing) |
 
 > **Note:** Free Render instances spin down after inactivity. The first request may take ~50 seconds to load.
 
@@ -252,3 +266,13 @@ Patient churn prediction enables healthcare facilities to:
 3. **Improve patient satisfaction** through targeted interventions
 4. **Reduce revenue loss** from patient attrition
 5. **Enhance care continuity** by maintaining patient relationships
+
+## 📬 Contact
+
+For queries, issues, or feature requests, please raise an [issue](https://github.com/DrVaishnaviKR/MLOps-Hospital-Patient-Retention-Analytics-System/issues) or reach out on our Discord server.
+
+🔗 **LinkedIn**: [Dr. Vaishnavi K R](https://www.linkedin.com/in/dr-vaishnavi-k-r-577947314/)
+
+---
+
+**Happy Coding!** 🚀
