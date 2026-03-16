@@ -269,7 +269,7 @@ Patient churn prediction enables healthcare facilities to:
 
 ## 📬 Contact
 
-For queries, issues, or feature requests, please raise an [issue](https://github.com/DrVaishnaviKR/MLOps-Hospital-Patient-Retention-Analytics-System/issues) or reach out on our Discord server.
+For queries, issues, or feature requests, please connect and discuss via below link.
 
 🔗 **LinkedIn**: [Dr. Vaishnavi K R](https://www.linkedin.com/in/dr-vaishnavi-k-r-577947314/)
 
